@@ -40,7 +40,12 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:flex sm:flex-col sm:items-end">
             <div className="flex space-x-2 mb-1">
               <NavLink to="/" big>Home</NavLink>
-              <NavLink to="/admissions" big>Admissions</NavLink>
+              <div className="flex flex-col items-center">
+                <NavLink to="/admissions" big>Admissions</NavLink>
+                <span className="text-xs font-semibold bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text animate-pulse">
+                  2024-2025
+                </span>
+              </div>
             </div>
             <div className="flex space-x-3">
               <NavLink to="/about">About</NavLink>
@@ -58,7 +63,12 @@ const Navbar: React.FC = () => {
         <div className="sm:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-            <MobileNavLink to="/admissions" onClick={toggleMenu}>Admissions</MobileNavLink> 
+            <div className="flex flex-col items-start">
+              <MobileNavLink to="/admissions" onClick={toggleMenu}>Admissions</MobileNavLink>
+              <span className="text-2xl font-semibold bg-gradient-to-r from-purple-900 to-pink-900 text-transparent bg-clip-text animate-pulse ml-3">
+                2024-2025
+              </span>
+            </div>
             <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
             <MobileNavLink to="/academics" onClick={toggleMenu}>Academics</MobileNavLink>
             <MobileNavLink to="/faculty" onClick={toggleMenu}>Faculty</MobileNavLink>
