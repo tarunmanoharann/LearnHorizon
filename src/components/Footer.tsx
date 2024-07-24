@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
           <p className="mt-8 text-base text-gray-300 md:mt-0 md:order-1">
-            &copy; 2024 LearnHorizon. All rights reserved.
+            &copy; 2024 SpringDale. All rights reserved.
           </p>
         </div>
       </div>
