@@ -30,11 +30,13 @@ const FacultyMember: React.FC<{ name: string; position: string; qualification: s
 const FacultyRow: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const controls = useAnimation();
   const ref = React.useRef(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: false, amount: 0.3 });
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
+    } else {
+      controls.start("hidden");
     }
   }, [controls, inView]);
 
@@ -45,7 +47,7 @@ const FacultyRow: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       initial="hidden"
       variants={{
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        hidden: { opacity: 0, y: 50 }
+        hidden: { opacity: 0, y: 50, transition: { duration: 0.5 } }
       }}
       className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
     >
@@ -55,22 +57,64 @@ const FacultyRow: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const Faculty: React.FC = () => {
+  const titleControls = useAnimation();
+  const introControls = useAnimation();
+  const joinTeamControls = useAnimation();
+  const titleRef = React.useRef(null);
+  const introRef = React.useRef(null);
+  const joinTeamRef = React.useRef(null);
+  const titleInView = useInView(titleRef, { once: false, amount: 0.3 });
+  const introInView = useInView(introRef, { once: false, amount: 0.3 });
+  const joinTeamInView = useInView(joinTeamRef, { once: false, amount: 0.3 });
+
+  useEffect(() => {
+    if (titleInView) {
+      titleControls.start("visible");
+    } else {
+      titleControls.start("hidden");
+    }
+  }, [titleControls, titleInView]);
+
+  useEffect(() => {
+    if (introInView) {
+      introControls.start("visible");
+    } else {
+      introControls.start("hidden");
+    }
+  }, [introControls, introInView]);
+
+  useEffect(() => {
+    if (joinTeamInView) {
+      joinTeamControls.start("visible");
+    } else {
+      joinTeamControls.start("hidden");
+    }
+  }, [joinTeamControls, joinTeamInView]);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <motion.h1 
+        ref={titleRef}
         className="text-4xl font-bold text-[#774EE0] mb-6"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        animate={titleControls}
+        initial="hidden"
+        variants={{
+          visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          hidden: { opacity: 0, y: -50, transition: { duration: 0.5 } }
+        }}
       >
         Our Faculty
       </motion.h1>
       
       <motion.div 
+        ref={introRef}
         className="mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        animate={introControls}
+        initial="hidden"
+        variants={{
+          visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          hidden: { opacity: 0, y: 50, transition: { duration: 0.5 } }
+        }}
       >
         <p className="text-lg text-gray-700">
           At Springdale Public School, we pride ourselves on our exceptional faculty. Our teachers are not just educators;
@@ -130,10 +174,14 @@ const Faculty: React.FC = () => {
       </FacultyRow>
       
       <motion.div 
+        ref={joinTeamRef}
         className="mt-8 bg-[#774EE0] text-white p-6 rounded-lg"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        animate={joinTeamControls}
+        initial="hidden"
+        variants={{
+          visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          hidden: { opacity: 0, y: 50, transition: { duration: 0.5 } }
+        }}
       >
         <h2 className="text-2xl font-semibold mb-4">Join Our Team</h2>
         <p className="mb-4">
