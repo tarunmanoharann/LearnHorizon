@@ -1,67 +1,140 @@
-// Faculty.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import { motion, useAnimation, useInView } from 'framer-motion';
 
-const FacultyMember: React.FC<{ name: string; position: string; qualification: string; experience: string }> = ({ name, position, qualification, experience }) => (
-  <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-    <h3 className="text-xl font-semibold text-[#774EE0] mb-2">{name}</h3>
-    <p className="text-gray-600 mb-1">{position}</p>
-    <p className="text-gray-600 mb-1">{qualification}</p>
-    <p className="text-gray-600">{experience}</p>
+const MaleSVG = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#774EE0" className="w-full h-full">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+  </svg>
+);
+
+const FemaleSVG = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#774EE0" className="w-full h-full">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+  </svg>
+);
+
+const FacultyMember: React.FC<{ name: string; position: string; qualification: string; experience: string; gender: 'male' | 'female' }> = ({ name, position, qualification, experience, gender }) => (
+  <div className="bg-white shadow-lg rounded-lg overflow-hidden mb-6 flex">
+    <div className="w-1/3 p-4 bg-gray-100">
+      {gender === 'male' ? <MaleSVG /> : <FemaleSVG />}
+    </div>
+    <div className="w-2/3 p-6">
+      <h3 className="text-xl font-semibold text-[#774EE0] mb-2">{name}</h3>
+      <p className="text-gray-600 mb-1">{position}</p>
+      <p className="text-gray-600 mb-1">{qualification}</p>
+      <p className="text-gray-600">{experience}</p>
+    </div>
   </div>
 );
+
+const FacultyRow: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const controls = useAnimation();
+  const ref = React.useRef(null);
+  const inView = useInView(ref);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  return (
+    <motion.div
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={{
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        hidden: { opacity: 0, y: 50 }
+      }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const Faculty: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#774EE0] mb-6">Our Faculty</h1>
+      <motion.h1 
+        className="text-4xl font-bold text-[#774EE0] mb-6"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Our Faculty
+      </motion.h1>
       
-      <div className="mb-8">
+      <motion.div 
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <p className="text-lg text-gray-700">
-          At LearnHorizon, we pride ourselves on our exceptional faculty. Our teachers are not just educators;
+          At Springdale Public School, we pride ourselves on our exceptional faculty. Our teachers are not just educators;
           they are mentors, innovators, and lifelong learners dedicated to nurturing the potential in every student.
         </p>
-      </div>
+      </motion.div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <FacultyRow>
         <FacultyMember
-          name="Dr. Emily Johnson"
+          name="Dr. Rajesh Sharma"
+          position="Principal"
+          qualification="Ph.D. in Education, Delhi University"
+          experience="25+ years of teaching and administration experience"
+          gender="male"
+        />
+        <FacultyMember
+          name="Mrs. Priya Gupta"
+          position="Vice Principal"
+          qualification="M.Ed., Jamia Millia Islamia University"
+          experience="20 years in education"
+          gender="female"
+        />
+      </FacultyRow>
+
+      <FacultyRow>
+        <FacultyMember
+          name="Mr. Amit Patel"
           position="Head of Science Department"
-          qualification="Ph.D. in Physics, Stanford University"
-          experience="15+ years of teaching experience"
+          qualification="M.Sc. in Physics, IIT Bombay"
+          experience="15 years of teaching experience"
+          gender="male"
         />
         <FacultyMember
-          name="Prof. Michael Chang"
+          name="Ms. Sunita Reddy"
           position="Mathematics Coordinator"
-          qualification="M.Sc. in Applied Mathematics, MIT"
+          qualification="M.Sc. in Mathematics, University of Madras"
           experience="12 years in education"
+          gender="female"
         />
+      </FacultyRow>
+
+      <FacultyRow>
         <FacultyMember
-          name="Ms. Sarah O'Connor"
-          position="English Literature Teacher"
-          qualification="M.A. in English Literature, Oxford University"
-          experience="8 years of teaching experience"
-        />
-        <FacultyMember
-          name="Mr. David Wilson"
+          name="Mr. Rahul Verma"
           position="Physical Education Instructor"
-          qualification="B.Sc. in Sports Science, University of Florida"
+          qualification="B.P.Ed., Lakshmibai National Institute of Physical Education"
           experience="10 years as a coach and educator"
+          gender="male"
         />
         <FacultyMember
-          name="Dr. Amelia Patel"
-          position="Computer Science Teacher"
-          qualification="Ph.D. in Computer Science, Carnegie Mellon University"
-          experience="7 years in tech industry, 5 years in education"
-        />
-        <FacultyMember
-          name="Prof. Robert Martinez"
+          name="Mrs. Anjali Desai"
           position="Head of Arts Department"
-          qualification="MFA in Fine Arts, Yale University"
-          experience="20+ years of artistic and teaching experience"
+          qualification="MFA in Fine Arts, MS University, Baroda"
+          experience="18 years of artistic and teaching experience"
+          gender="female"
         />
-      </div>
+      </FacultyRow>
       
-      <div className="mt-8 bg-[#774EE0] text-white p-6 rounded-lg">
+      <motion.div 
+        className="mt-8 bg-[#774EE0] text-white p-6 rounded-lg"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
         <h2 className="text-2xl font-semibold mb-4">Join Our Team</h2>
         <p className="mb-4">
           We are always looking for passionate educators to join our team. If you're interested in making a difference
@@ -70,7 +143,7 @@ const Faculty: React.FC = () => {
         <a href="/careers" className="inline-block bg-white text-[#774EE0] py-2 px-4 rounded-md hover:bg-gray-100 transition duration-300">
           View Open Positions
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 };

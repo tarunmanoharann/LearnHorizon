@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-2">
           <div className="flex items-center justify-between">
             <Link to="/" className="text-3xl font-bold text-[#774EE0] py-2">
-              LearnHorizon
+              SpringDale
             </Link>
             <div className="sm:hidden">
               <button
@@ -40,11 +40,11 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:flex sm:flex-col sm:items-end">
             <div className="flex space-x-2 mb-1">
               <NavLink to="/" big>Home</NavLink>
-              <NavLink to="/about" big>About</NavLink>
+              <NavLink to="/admissions" big>Admissions</NavLink>
             </div>
             <div className="flex space-x-3">
+              <NavLink to="/about">About</NavLink>
               <NavLink to="/academics">Academics</NavLink>
-              <NavLink to="/admissions">Admissions</NavLink>
               <NavLink to="/faculty">Faculty</NavLink>
               <NavLink to="/students">Students</NavLink>
               <NavLink to="/gallery">Gallery</NavLink>
@@ -58,9 +58,9 @@ const Navbar: React.FC = () => {
         <div className="sm:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
+            <MobileNavLink to="/admissions" onClick={toggleMenu}>Admissions</MobileNavLink> 
             <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
             <MobileNavLink to="/academics" onClick={toggleMenu}>Academics</MobileNavLink>
-            <MobileNavLink to="/admissions" onClick={toggleMenu}>Admissions</MobileNavLink>
             <MobileNavLink to="/faculty" onClick={toggleMenu}>Faculty</MobileNavLink>
             <MobileNavLink to="/students" onClick={toggleMenu}>Students</MobileNavLink>
             <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>

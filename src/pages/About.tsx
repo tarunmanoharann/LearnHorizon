@@ -1,37 +1,80 @@
-// About.tsx
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-[#774EE0] mb-6">About LearnHorizon</h1>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 p-6">
-        <h2 className="text-2xl font-semibold mb-4">Our History</h2>
+      <motion.h1 
+        className="text-4xl font-bold text-[#774EE0] mb-6"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        About Springdale Public School
+      </motion.h1>
+
+      <motion.div 
+        className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 p-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <h2 className="text-2xl font-semibold mb-4 text-[#774EE0]">Our History</h2>
         <p className="text-gray-700 mb-4">
-          Founded in 1995, LearnHorizon has been at the forefront of educational innovation for over two decades.
-          Our journey began with a vision to create a learning environment that nurtures curiosity, creativity, and character.
+          Founded in 1985, Springdale Public School has been dedicated to providing quality education and holistic development to students for over three decades.
         </p>
-        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
+      </motion.div>
+
+      <motion.div 
+        className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 p-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <h2 className="text-2xl font-semibold mb-4 text-[#774EE0]">Our Vision</h2>
         <p className="text-gray-700 mb-4">
-          To empower students with knowledge, skills, and values that enable them to become responsible global citizens
-          and lifelong learners.
+          To create a learning environment that fosters academic excellence, critical thinking, and ethical values.
         </p>
-        <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Excellence in Education</li>
-          <li>Integrity and Ethics</li>
-          <li>Innovation and Creativity</li>
-          <li>Inclusivity and Diversity</li>
-        </ul>
-      </div>
-      <div className="bg-[#774EE0] text-white p-6 rounded-lg">
+      </motion.div>
+
+      <motion.div 
+        className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 p-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <h2 className="text-2xl font-semibold mb-4 text-[#774EE0]">Our Mission</h2>
+        <p className="text-gray-700 mb-4">
+          To empower students with the knowledge, skills, and values needed to thrive in a dynamic world.
+        </p>
+      </motion.div>
+
+      <motion.div 
+        className="bg-[#774EE0] text-white p-6 rounded-lg mb-8"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
         <h2 className="text-2xl font-semibold mb-4">Message from the Principal</h2>
         <p className="italic">
-          "At LearnHorizon, we believe in the potential of every student. Our commitment is to provide an environment
-          where each child can discover their unique talents and develop the skills needed for success in the 21st century."
+          "At Springdale, we believe in nurturing the potential of every student and guiding them towards a successful future."
         </p>
-        <p className="mt-2">- Dr. Jane Smith, Principal</p>
-      </div>
+      </motion.div>
+
+      <motion.div 
+        className="bg-white shadow-lg rounded-lg overflow-hidden p-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <h2 className="text-2xl font-semibold mb-4 text-[#774EE0]">Infrastructure and Facilities</h2>
+        <ul className="list-disc list-inside text-gray-700">
+          <li>State-of-the-art science and computer labs</li>
+          <li>Spacious and well-equipped classrooms</li>
+          <li>Library with a vast collection of books and digital resources</li>
+          <li>Sports facilities including a playground, gymnasium, and swimming pool</li>
+        </ul>
+      </motion.div>
     </div>
   );
 };
