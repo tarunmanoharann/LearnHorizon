@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import artexhibition from "../photos/gallery/artexhibition.jpg"
+import classroom from "../photos/gallery/classroom.jpg"
+import graduationday from "../photos/gallery/graduationday.jpg"
+import library from "../photos/gallery/schoollibrary.avif"
+import scifair from "../photos/gallery/sciencefair.webp"
+import sportday from "../photos/gallery/spportsday.jpg"
+
 interface Image {
   id: number;
   src: string;
@@ -9,12 +16,12 @@ interface Image {
 }
 
 const images: Image[] = [
-  { id: 1, src: '/images/classroom.jpg', alt: 'Classroom', category: 'Academic' },
-  { id: 2, src: '/images/science-fair.jpg', alt: 'Science Fair', category: 'Events' },
-  { id: 3, src: '/images/sports-day.jpg', alt: 'Sports Day', category: 'Sports' },
-  { id: 4, src: '/images/art-exhibition.jpg', alt: 'Art Exhibition', category: 'Arts' },
-  { id: 5, src: '/images/graduation.jpg', alt: 'Graduation Ceremony', category: 'Events' },
-  { id: 6, src: '/images/library.jpg', alt: 'School Library', category: 'Academic' },
+  { id: 1, src: classroom, alt: 'Classroom', category: 'Academic' },
+  { id: 2, src: scifair, alt: 'Science Fair', category: 'Events' },
+  { id: 3, src: sportday, alt: 'Sports Day', category: 'Sports' },
+  { id: 4, src: artexhibition, alt: 'Art Exhibition', category: 'Arts' },
+  { id: 5, src: graduationday, alt: 'Graduation Ceremony', category: 'Events' },
+  { id: 6, src: library, alt: 'School Library', category: 'Academic' },
 ];
 
 const Gallery: React.FC = () => {
@@ -80,7 +87,7 @@ const Gallery: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-            className="bg-white shadow-lg rounded-lg overflow-hidden"
+            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer"
           >
             <img src={image.src} alt={image.alt} className="w-full h-64 object-cover" />
             <div className="p-4">
