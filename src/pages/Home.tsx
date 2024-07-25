@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserGraduate, FaCalendarAlt, FaGraduationCap } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer';
+
+import sportsday from "../photos/sportsday.jpg";
+import scienceexbhi from "../photos/scienceexbhi.webp";
+import culturalfest from "../photos/culturalfest.jpeg";
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,19 +14,19 @@ const Home: React.FC = () => {
     {
       title: "Annual Sports Day",
       description: "Celebrating Excellence in Sports",
-      image: "url('path/to/sports-day-image.jpg')",
+      image: sportsday,
       color: "#E63946",
     },
     {
       title: "Science Exhibition",
       description: "Showcasing Student Innovations",
-      image: "url('path/to/science-exhibition-image.jpg')",
+      image: scienceexbhi,
       color: "#457B9D",
     },
     {
       title: "Cultural Fest",
       description: "Embracing Diversity and Creativity",
-      image: "url('path/to/cultural-fest-image.jpg')",
+      image: culturalfest,
       color: "#F4A261",
     },
   ];
@@ -54,7 +58,7 @@ const CarouselSection: React.FC<{ slides: any[], currentSlide: number, setCurren
           index === currentSlide ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          backgroundImage: slide.image,
+          backgroundImage: `url(${slide.image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -180,6 +184,7 @@ const NewsEventsSection: React.FC = () => {
     </motion.div>
   );
 };
+
 const WhyChooseUsSection: React.FC = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: false });
