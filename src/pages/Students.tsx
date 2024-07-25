@@ -1,6 +1,13 @@
 import React, { useEffect, ReactNode } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 
+import chessclub from "../photos/clubs/chessclub.jpeg"
+import debateclub from "../photos/clubs/debateclub.jpeg"
+import dramaticlub from "../photos/clubs/dramaticclub.png"
+import ecoclub from "../photos/clubs/ecoclub.jpeg"
+import musicclub from "../photos/clubs/musicclub.jpeg"
+import roboclub from "../photos/clubs/roboclub.jpeg"
+
 const AnimatedSection: React.FC<{ children: ReactNode }> = ({ children }) => {
   const controls = useAnimation();
   const ref = React.useRef(null);
@@ -35,8 +42,8 @@ interface ActivityBoxProps {
 }
 
 const ActivityBox: React.FC<ActivityBoxProps> = ({ activity, image }) => (
-  <div className="relative w-full aspect-square overflow-hidden rounded-lg shadow-lg">
-    <img src={`/photos/${image}`} alt={activity} className="w-full h-full object-cover" />
+  <div className="relative w-full aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer">
+    <img src={image} alt={activity} className="w-full h-full object-cover" />
     <div className="absolute inset-0 bg-black opacity-40"></div>
     <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
       <h3 className="text-white text-base font-semibold">{activity}</h3>
@@ -46,12 +53,12 @@ const ActivityBox: React.FC<ActivityBoxProps> = ({ activity, image }) => (
 
 const Students: React.FC = () => {
   const activities: ActivityBoxProps[] = [
-    { activity: 'Debate Club', image: 'debate.jpg' },
-    { activity: 'Chess Club', image: 'chess.jpg' },
-    { activity: 'Drama Society', image: 'drama.jpg' },
-    { activity: 'Environmental Club', image: 'environmental.jpg' },
-    { activity: 'Robotics Team', image: 'robotics.jpg' },
-    { activity: 'School Band', image: 'band.jpg' }
+    { activity: 'Debate Club', image: debateclub },
+    { activity: 'Chess Club', image: chessclub },
+    { activity: 'Drama Society', image: dramaticlub },
+    { activity: 'Environmental Club', image: ecoclub },
+    { activity: 'Robotics Team', image: roboclub },
+    { activity: 'School Band', image: musicclub }
   ];
 
   return (
