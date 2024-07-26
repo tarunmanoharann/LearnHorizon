@@ -1,6 +1,6 @@
 #  LearnHorizon School Website
 
-This project is a website for Springdale School, built using React, TypeScript, and Vite.
+This project is a website for LearnHorizon School, built using React, TypeScript, and Vite.
 
 ## Table of Contents
 
