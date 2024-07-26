@@ -80,4 +80,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 This project is licensed under the MIT License.
 
-This README includes information about the React + TypeScript + Vite setup for Springdale School Website project.
+This README includes information about the React + TypeScript + Vite setup for LearnHorizon School Website project.
