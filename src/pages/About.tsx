@@ -10,7 +10,7 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        About Springdale Public School
+        About LearnHorizon Public School
       </motion.h1>
 
       <motion.div 
@@ -21,7 +21,7 @@ const About: React.FC = () => {
       >
         <h2 className="text-2xl font-semibold mb-4 text-[#774EE0]">Our History</h2>
         <p className="text-gray-700 mb-4">
-          Founded in 1985, Springdale Public School has been dedicated to providing quality education and holistic development to students for over three decades.
+          Founded in 1985, LearnHorizon Public School has been dedicated to providing quality education and holistic development to students for over three decades.
         </p>
       </motion.div>
 
@@ -57,7 +57,7 @@ const About: React.FC = () => {
       >
         <h2 className="text-2xl font-semibold mb-4">Message from the Principal</h2>
         <p className="italic">
-          "At Springdale, we believe in nurturing the potential of every student and guiding them towards a successful future."
+          "At LearnHorizon, we believe in nurturing the potential of every student and guiding them towards a successful future."
         </p>
       </motion.div>
 

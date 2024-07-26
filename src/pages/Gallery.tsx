@@ -46,7 +46,7 @@ const Gallery: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="text-4xl font-bold text-[#774EE0] mb-6"
       >
-        SpringDale Gallery
+        LearnHorizon Gallery
       </motion.h1>
 
       <motion.div

@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-2">
           <div className="flex items-center justify-between">
             <Link to="/" className="text-3xl font-bold text-[#774EE0] py-2">
-              SpringDale
+              LearnHorizon
             </Link>
             <div className="sm:hidden">
               <button

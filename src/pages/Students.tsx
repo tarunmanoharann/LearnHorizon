@@ -76,7 +76,7 @@ const Students: React.FC = () => {
         <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
           <h2 className="text-2xl font-semibold text-[#774EE0] mb-4">Extracurricular Activities</h2>
           <p className="text-gray-700 mb-4">
-            At SpringDale, we believe in nurturing well-rounded individuals. Our diverse range of extracurricular
+            At LearnHorizon, we believe in nurturing well-rounded individuals. Our diverse range of extracurricular
             activities provides students with opportunities to explore their interests and develop new skills.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">

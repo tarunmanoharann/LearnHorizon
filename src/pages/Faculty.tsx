@@ -117,7 +117,7 @@ const Faculty: React.FC = () => {
         }}
       >
         <p className="text-lg text-gray-700">
-          At Springdale Public School, we pride ourselves on our exceptional faculty. Our teachers are not just educators;
+          At LearnHorizon Public School, we pride ourselves on our exceptional faculty. Our teachers are not just educators;
           they are mentors, innovators, and lifelong learners dedicated to nurturing the potential in every student.
         </p>
       </motion.div>

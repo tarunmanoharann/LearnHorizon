@@ -10,7 +10,7 @@ const Academics: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Academics at Springdale Public School
+        Academics at LearnHorizon Public School
       </motion.h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
