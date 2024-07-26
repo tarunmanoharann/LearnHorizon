@@ -1,4 +1,4 @@
-# Springdale School Website
+#  LearnHorizon School Website
 
 This project is a website for Springdale School, built using React, TypeScript, and Vite.
 
